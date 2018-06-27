@@ -1,0 +1,492 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Kamp 2016</title>
+    <style>
+
+      html,body{
+        height: 100%;
+        width: 100%;
+      }
+      body{
+        font-family: Arial, Verdana, sans-serif;
+      }
+      h1{
+        text-transform: uppercase;
+      }
+      .fullscreen{
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+
+      }
+      .content{
+        width: 100%;
+          text-align: center;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          -moz-transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+      }
+      #groupSelectionView{
+        text-align: center;
+      }
+      button, a#backButton{
+        display: inline-block;
+        text-decoration: none;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        -moz-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+      }
+	  #backButton{
+			margin-top: 50px;
+
+	  }
+    .adminBackButton{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      margin-top: 0 !important;
+    }
+
+      #groupSelectionView button:hover{
+        background-color: #ccc;
+      }
+
+      .input-group{
+        position: relative;
+        display: table;
+        border-collapse: separate;
+      }
+      .input-group input{
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+/*        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;*/
+      }
+      #selectionView input{
+          width: 80%;
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        #selectionView button{
+          height: 48px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-left: -5px;
+          margin-top: -1px;
+
+    font-weight:bold;
+      font-size: 24px;
+        }
+       #ophaalView input{
+          width: 80%;
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        #ophaalView button{
+          height: 48px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-left: -5px;
+          margin-top: -1px;
+
+    font-weight:bold;
+      font-size: 24px;
+        }
+       #ingredientView input{
+          width: 80%;
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        #ingredientView button{
+          height: 48px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-left: -5px;
+          margin-top: -1px;
+
+    font-weight:bold;
+      font-size: 24px;
+        }        
+        
+      #provideCodeView .content{
+        width: 100%;
+          text-align: center;
+          position: static;
+
+          -moz-transform: translateY(0);
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+
+      }
+      #provideCodeView .content button{
+        font-size: 14px !important;
+        height: 25px !important;
+        font-weight: normal;
+        margin: 4px;
+        line-height: 0.5 !important;
+        border-radius: 4px !important;
+
+      }
+      #provideCodeView .codebuttons{
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      #provideCodeView input{
+        width: 80%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      #provideCodeView button{
+        height: 48px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: -5px;
+        margin-top: -1px;
+
+	font-weight:bold;
+		font-size: 24px;
+      }
+      #msg{
+        margin-top: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-shadow: 0 1px 0 rgba(255,255,255,.2);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.05);
+        background-image: -webkit-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+        background-image: -o-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#dff0d8),to(#c8e5bc));
+        background-image: linear-gradient(to bottom,#dff0d8 0,#c8e5bc 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', 
+
+GradientType=0);
+        background-repeat: repeat-x;
+        border-color: #b2dba1;
+        display: inline-block;
+        padding: 40px;
+        width: 60%;
+        visibility: visible;
+      }
+
+      #msg.error{
+        background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+        background-image: -o-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#f2dede),to(#e7c3c3));
+        background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', 
+
+GradientType=0);
+        background-repeat: repeat-x;
+        border-color: #dca7a7;
+      }
+
+      #msg.hidden{
+        visibility: hidden;
+      }
+
+      .voltooid{
+        background: green;
+      }
+    </style>
+	
+  </head>
+  <body>
+      <div id="selectionView" class="fullscreen">
+        <div class="content">
+        <h1>
+        <span></span>
+        </h1>
+        <h1>Welke actie wil je uitvoeren?</h1>
+        <button id="leverIngredient" data-buttonid="geef">Inleveren ingredienten</button>                   <br><br>
+        <button id="ophalenDrank" data-buttonid="ophalen">Drank ophalen</button><br><br>
+        <br><br>
+        <br><br>
+        <button id="ingredient instellen" data-buttonid="voorraad">Ingredienten instellen</button>
+        
+        </button>
+        </div>
+      </div>
+    
+
+      
+      <div id="groupSelectionView" class="fullscreen">
+        <div class="content">
+          <h1>Voor wie wil je een ingredient inleveren?</h1><br><br>
+          <h1>Gidsen:</h1>
+          <button id="selectGroep1" data-groupid="Lauri">Lauri</button>
+          <button id="selectGroep2" data-groupid="Luna">Luna</button>
+          <button id="selectGroep3" data-groupid="Mara">Mara</button>
+          <button id="selectGroep4" data-groupid="Karlijn">Karlijn</button>
+          <button id="selectGroep5" data-groupid="Jasmijn">Jasmijn</button>
+          <button id="selectGroep6" data-groupid="Sara">Sara</button>
+          <button id="selectGroep7" data-groupid="Gwen">Gwen</button><br><br><br>
+           <h1>Verkenners:</h1>
+          <button id="selectGroep8" data-groupid="Jimmy">Jimmy</button>
+          <button id="selectGroep9" data-groupid="Jop">Jop</button>
+          <button id="selectGroep10" data-groupid="Kevin">Kevin</button>
+          <button id="selectGroep11" data-groupid="Milan">Milan</button>
+          <button id="selectGroep12" data-groupid="Mano">Mano</button><br>
+          <button id="selectGroep13" data-groupid="Bram">Bram</button>
+          <button id="selectGroep14" data-groupid="Jelle">Jelle</button>
+          <button id="selectGroep15" data-groupid="Loek">Loek</button>
+          <button id="selectGroep16" data-groupid="Sam">Sam</button>
+          <button id="selectGroep17" data-groupid="Joep">Joep</button><br>
+          <button id="selectGroep18" data-groupid="Mick">Mick</button>
+          <button id="selectGroep19" data-groupid="Bryan">Bryan</button>
+          <button id="selectGroep20" data-groupid="Yvan">Yvan</button>
+          <button id="selectGroep21" data-groupid="Bart">Bart</button>
+          <button id="selectGroep22" data-groupid="Desley">Desley</button><br>
+          <button id="selectGroep23" data-groupid="Kay">Kay</button>
+          <button id="selectGroep24" data-groupid="Max">Max</button>
+          <button id="selectGroep25" data-groupid="Jesse">Jesse</button>
+          <button id="selectGroep26" data-groupid="Ewout">Ewout</button>
+          <button id="selectGroep27" data-groupid="Shalom">Shalom</button><br>
+          <div id="msg" class="hidden">
+            Hier komen de meldingen
+          </div>
+
+        </div>
+      </div>
+       <div id="ingredientView" class="fullscreen">
+        <div class="content">
+        <h1>
+        <span></span>
+        </h1>
+        <h1>Welk ingredient wordt ingeleverd?</h1>
+        <button id="Citroenen" data-buttonid="2">Citroenen</button><br>
+        <button id="Druiven" data-buttonid="3">Druiven</button><br>
+        <button id="Water" data-buttonid="4">Water</button><br>
+        <button id="Suiker" data-buttonid="5">Suiker</button><br>
+        <button id="Ethanol" data-buttonid="6">Ethanol</button><br><br><br>
+        <button id="back1" data-buttonid="back1">Terug</button>
+        </div>
+      </div>    
+       <div id="ophaalView" class="fullscreen">
+        <div class="content">
+        <h1>Welke drank wil je ophalen?</h1>
+        <button id="limoncella" data-buttonid="limoncella">Limoncella</button>                               <br><br>
+        <button id="grappa" data-buttonid="grappa">Grappa</button><br><br>
+        <button id="beide" data-buttonid="beide">Beide</button><br><br>
+        </div>
+      </div>
+      
+ <script src="/socket.io/socket.io.js"></script>
+	<script src="/js/jquery.js"></script>
+  <script>
+  // LAYOUT
+  var currentGroupId;
+  var currentButtonId;
+  var message;
+  var socket = io();
+  var codeN = 0;
+  var table = document.getElementById("output");
+
+  $("document").ready(function(){
+    $("#provideCodeView").hide();
+		$("#groupSelectionView").hide();
+    $("#ingredientView").hide();
+		$("#ophaalView").hide();
+    
+    
+    $("#selectionView Button").click(function(){
+    		currentButtonId=$(this).data("buttonid");
+				if (currentButtonId == "geef"){   
+        	$("#selectionView").hide();
+        	$("#groupSelectionView").show();
+          }
+      	 if (currentButtonId == "ophalen"){
+					$("#selectionView").hide();
+        	$("#ophaalView").show();        	
+        } 
+     });   
+        
+    $("#groupSelectionView button").click(function(){
+			currentGroupId=$(this).data("groupid");
+      message = currentGroupId;
+      $("#groupSelectionView").hide();
+      $("#provideCodeView").hide();
+      $("#ingredientView").show();
+    });
+
+     
+    
+    
+   /* socket.on('getCodes', function(msg){
+             $("#codes").html("");
+             $.each(msg,function(index, value){
+               console.log(value);
+               var voltooid = true;
+               $.each(value, function(index2,value2){
+                  if(value2 != true){
+                    voltooid=false;
+                  }
+               });
+               if(voltooid){
+                 $("#codes").append("<div class='voltooid'>"+value+"</div>");
+
+               }else{
+                  $("#codes").append("<div>"+value+"</div>");
+               }
+
+             });
+    });
+
+
+        $('form button').click(function(){
+
+          socket.emit('berichtadmin', currentGroupId +""+ $(this).data('codenumber'));
+          return false;
+        });
+
+*/
+
+    // $('form').submit(function(){
+    //   socket.emit('chat message', currentGroupId + $('#code').val());
+    //   $('#code').val('');
+    //   return false;
+    // });
+
+  });
+
+  </script>    
+      
+
+  </body>
+</html>
